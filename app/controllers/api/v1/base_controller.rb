@@ -11,4 +11,8 @@ class Api::V1::BaseController < ApplicationController
   def api_error(opts={})
     render :nothing=>true, status: opts[:status]
   end
+
+  def unauthenticated!
+    api_error(status: 401)
+  end
 end
