@@ -1,4 +1,5 @@
 class Api::V1::BaseController < ApplicationController
+  attr_accessor :current_user
   protect_from_forgery with: :null_session
   before_action :destroy_session
   skip_before_action :verify_authenticity_token
