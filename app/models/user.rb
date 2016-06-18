@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :microposts
   has_secure_password
   before_save :generate_authentication_token
 

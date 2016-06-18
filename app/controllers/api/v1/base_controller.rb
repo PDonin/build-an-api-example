@@ -39,4 +39,13 @@ class Api::V1::BaseController < ApplicationController
   def deny_access
     api_error(status: 403)
   end
+
+  def paginate(resource)
+    resource = resource.page(params[:page] || 1)
+    if params[:per_page]
+      resource.per(params[:per_page])
+    end
+
+    return resource
+  end
 end
