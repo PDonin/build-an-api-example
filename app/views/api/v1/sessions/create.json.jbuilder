@@ -1,3 +1,4 @@
-json.user do
-  json.(@current_user, :name, :email, :authentication_token)
+json.session do
+  json.(@user, :id, :name, :admin)
+  json.token @user.authentication_token
 end
