@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :microposts
   has_secure_password
-  before_save :generate_authentication_token
+  before_create :generate_authentication_token
 
   def generate_authentication_token
     loop do
